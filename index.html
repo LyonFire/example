@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>米途 MeToo — 专业老师，到孩子身边去</title>
+<meta name="description" content="米途连接专业特殊教育老师与需要支持的家庭，提供入校、入户、远程服务，全程透明记录。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#FFB800;--primary-deep:#FF9500;
+  --text:#1A1A1A;--text2:#555;--text3:#999;
+  --bg:#FFFDF7;--card:#fff;--border:#f0ebe3;
+  --blue:#3B82F6;--green:#16A34A;--purple:#7B61FF;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Noto Sans SC',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{border:none;cursor:pointer;font:inherit}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem 1.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-30%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(255,184,0,.12),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-20%;width:50vw;height:50vw;border-radius:50%;background:radial-gradient(circle,rgba(255,149,0,.08),transparent 70%);pointer-events:none}
+.hero-logo{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--primary-deep),var(--primary));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(255,149,0,.25);margin-bottom:1.5rem;position:relative;z-index:1}
+.hero-logo .material-symbols-outlined{font-size:36px;color:#fff;fill:1}
+.hero h1{font-size:2rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.5rem;position:relative;z-index:1}
+.hero h1 span{background:linear-gradient(135deg,var(--primary-deep),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .tagline{font-size:1.05rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;max-width:340px;position:relative;z-index:1}
+.hero .tags{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:2rem;position:relative;z-index:1}
+.hero .tag{font-size:.75rem;font-weight:500;padding:.35rem .85rem;border-radius:100px}
+.hero .tag.t1{background:rgba(255,184,0,.12);color:#9a4800}
+.hero .tag.t2{background:rgba(59,130,246,.08);color:#2563eb}
+.hero .tag.t3{background:rgba(22,163,74,.08);color:#15803d}
+.hero-cta{display:flex;flex-direction:column;gap:.75rem;width:100%;max-width:340px;position:relative;z-index:1}
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:.5rem;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--primary-deep),var(--primary));color:#fff;font-weight:700;font-size:1rem;box-shadow:0 4px 16px rgba(255,149,0,.3);transition:transform .15s,box-shadow .15s}
+.btn-primary:active{transform:scale(.97);box-shadow:0 2px 8px rgba(255,149,0,.2)}
+.btn-secondary{display:flex;align-items:center;justify-content:center;gap:.5rem;height:52px;border-radius:14px;background:#fff;color:var(--text);font-weight:700;font-size:1rem;border:2px solid var(--border);transition:transform .15s}
+.btn-secondary:active{transform:scale(.97)}
+
+section{padding:3rem 1.5rem}
+section h2{font-size:1.35rem;font-weight:800;margin-bottom:.35rem;letter-spacing:-.01em}
+section .subtitle{font-size:.85rem;color:var(--text3);margin-bottom:1.5rem}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem .75rem;text-align:center}
+.stat-card .num{font-size:1.5rem;font-weight:900;color:var(--primary-deep)}
+.stat-card .label{font-size:.7rem;color:var(--text2);margin-top:.25rem}
+
+.features{display:grid;gap:1rem}
+.feature-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem;display:flex;align-items:flex-start;gap:1rem}
+.feature-card .icon-box{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feature-card .icon-box .material-symbols-outlined{font-size:22px;color:#fff}
+.feature-card h3{font-size:.95rem;font-weight:700;margin-bottom:.25rem}
+.feature-card p{font-size:.8rem;color:var(--text2);line-height:1.6}
+
+.orgs-scroll{display:flex;gap:.75rem;overflow-x:auto;padding-bottom:.5rem;-ms-overflow-style:none;scrollbar-width:none}
+.orgs-scroll::-webkit-scrollbar{display:none}
+.org-chip{flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;min-width:140px}
+.org-chip .name{font-size:.85rem;font-weight:700;margin-bottom:.15rem;white-space:nowrap}
+.org-chip .meta{font-size:.7rem;color:var(--text3)}
+.org-chip .score{color:var(--primary-deep);font-weight:700}
+
+.demands-scroll{display:flex;gap:.75rem;overflow-x:auto;padding-bottom:.5rem;-ms-overflow-style:none;scrollbar-width:none}
+.demands-scroll::-webkit-scrollbar{display:none}
+.demand-card{flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;min-width:240px}
+.demand-card .type{font-size:.85rem;font-weight:700;margin-bottom:.5rem}
+.demand-card .needs{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.5rem}
+.demand-card .need-tag{font-size:.65rem;padding:.2rem .5rem;border-radius:100px;background:rgba(255,184,0,.08);color:var(--text2)}
+.demand-card .info{font-size:.7rem;color:var(--text3);display:flex;align-items:center;gap:.25rem}
+
+.reviews{display:flex;flex-direction:column;gap:1rem}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem}
+.review-card .stars{color:var(--primary);font-size:.85rem;margin-bottom:.5rem;letter-spacing:2px}
+.review-card .content{font-size:.85rem;color:var(--text2);line-height:1.7;margin-bottom:.5rem}
+.review-card .author{font-size:.7rem;color:var(--text3)}
+
+.teachers-row{display:flex;gap:.75rem;overflow-x:auto;padding-bottom:.5rem;-ms-overflow-style:none;scrollbar-width:none}
+.teachers-row::-webkit-scrollbar{display:none}
+.teacher-chip{flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;min-width:130px;text-align:center}
+.teacher-chip .avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#fecf94,#f5a623);color:#785727;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto .5rem}
+.teacher-chip .name{font-size:.85rem;font-weight:700;margin-bottom:.1rem}
+.teacher-chip .title{font-size:.7rem;color:var(--text3)}
+.teacher-chip .score{font-size:.75rem;color:var(--primary-deep);font-weight:700;margin-top:.25rem}
+
+.cta-bottom{padding:3rem 1.5rem 2rem;text-align:center}
+.cta-bottom h2{font-size:1.35rem;font-weight:800;margin-bottom:.5rem}
+.cta-bottom p{font-size:.85rem;color:var(--text2);margin-bottom:1.5rem}
+.cta-bottom .btns{display:flex;flex-direction:column;gap:.75rem;max-width:340px;margin:0 auto}
+
+footer{text-align:center;padding:1.5rem;font-size:.7rem;color:var(--text3);border-top:1px solid var(--border)}
+footer a{color:var(--primary-deep);font-weight:500}
+
+.section-divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin:0 1.5rem}
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-logo">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span>
+  </div>
+  <h1>米途 <span>MeToo</span></h1>
+  <p class="tagline">专业老师，到孩子身边去。<br>连接有能力的老师与需要支持的家庭，让专业支持触手可及。</p>
+  <div class="tags">
+    <span class="tag t1">入校 · 入户 · 远程</span>
+    <span class="tag t2">认证专业老师</span>
+    <span class="tag t3">全程透明记录</span>
+  </div>
+  <div class="hero-cta">
+    <a href="./mobile-demo/" class="btn-primary">
+      <span class="material-symbols-outlined" style="font-size:20px">family_restroom</span>
+      我是家长
+    </a>
+    <a href="./mobile-demo/" class="btn-secondary">
+      <span class="material-symbols-outlined" style="font-size:20px">school</span>
+      我是老师
+    </a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 数据亮点 ====== -->
+<section>
+  <h2>被越来越多的家庭信赖</h2>
+  <p class="subtitle">真实数据，持续增长</p>
+  <div class="stats">
+    <div class="stat-card">
+      <div class="num">2000+</div>
+      <div class="label">服务家庭</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">4.9</div>
+      <div class="label">平均评分</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">98%</div>
+      <div class="label">家长好评</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 核心优势 ====== -->
+<section>
+  <h2>为什么选择米途</h2>
+  <p class="subtitle">三大核心优势，让专业支持不再遥远</p>
+  <div class="features">
+    <div class="feature-card">
+      <div class="icon-box" style="background:linear-gradient(135deg,#3B82F6,#60A5FA)">
+        <span class="material-symbols-outlined">verified_user</span>
+      </div>
+      <div>
+        <h3>认证专业老师</h3>
+        <p>所有入驻老师均经过资质审核和背景调查，持证上岗，专业可信赖</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box" style="background:linear-gradient(135deg,var(--primary-deep),var(--primary))">
+        <span class="material-symbols-outlined">visibility</span>
+      </div>
+      <div>
+        <h3>全程透明记录</h3>
+        <p>每次服务的签到签退、服务照片、进展报告，家长随时可查看</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="icon-box" style="background:linear-gradient(135deg,var(--green),#4ADE80)">
+        <span class="material-symbols-outlined">tune</span>
+      </div>
+      <div>
+        <h3>灵活服务方式</h3>
+        <p>入校支持、入户干预、远程指导三种模式，匹配不同家庭的实际需求</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 合作机构 ====== -->
+<section>
+  <h2>合作机构</h2>
+  <p class="subtitle">严选优质机构，覆盖核心区域</p>
+  <div class="orgs-scroll">
+    <div class="org-chip">
+      <div class="name">大米和小米</div>
+      <div class="meta">朝阳区 · <span class="score">4.9</span>分</div>
+      <div class="meta">15位老师 · 42位家长</div>
+    </div>
+    <div class="org-chip">
+      <div class="name">启航训练基地</div>
+      <div class="meta">海淀区 · <span class="score">4.7</span>分</div>
+      <div class="meta">12位老师 · 38位家长</div>
+    </div>
+    <div class="org-chip">
+      <div class="name">星语康复中心</div>
+      <div class="meta">西城区 · <span class="score">4.5</span>分</div>
+      <div class="meta">8位老师 · 25位家长</div>
+    </div>
+    <div class="org-chip">
+      <div class="name">彩虹发展中心</div>
+      <div class="meta">丰台区 · <span class="score">4.6</span>分</div>
+      <div class="meta">10位老师 · 30位家长</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 专业老师 ====== -->
+<section>
+  <h2>专业老师团队</h2>
+  <p class="subtitle">经验丰富，专注儿童发展</p>
+  <div class="teachers-row">
+    <div class="teacher-chip">
+      <div class="avatar">张</div>
+      <div class="name">张老师</div>
+      <div class="title">资深康复师 · 8年</div>
+      <div class="score">4.9分 · 128评价</div>
+    </div>
+    <div class="teacher-chip">
+      <div class="avatar">李</div>
+      <div class="name">李老师</div>
+      <div class="title">入户干预师 · 5年</div>
+      <div class="score">4.7分 · 96评价</div>
+    </div>
+    <div class="teacher-chip">
+      <div class="avatar">王</div>
+      <div class="name">王老师</div>
+      <div class="title">言语康复师 · 6年</div>
+      <div class="score">4.8分 · 112评价</div>
+    </div>
+    <div class="teacher-chip">
+      <div class="avatar">陈</div>
+      <div class="name">陈老师</div>
+      <div class="title">影子老师 · 4年</div>
+      <div class="score">4.9分 · 87评价</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 家长需求 ====== -->
+<section>
+  <h2>家长正在寻找</h2>
+  <p class="subtitle">这些需求正在等你响应</p>
+  <div class="demands-scroll">
+    <div class="demand-card">
+      <div class="type">入校支持</div>
+      <div class="needs">
+        <span class="need-tag">社交发展</span>
+        <span class="need-tag">专注力提升</span>
+      </div>
+      <div class="info">
+        <span class="material-symbols-outlined" style="font-size:14px">location_on</span> 朝阳区
+      </div>
+      <div class="info" style="margin-top:.15rem">
+        <span class="material-symbols-outlined" style="font-size:14px">payments</span> 500-800元/天
+      </div>
+    </div>
+    <div class="demand-card">
+      <div class="type">入户干预</div>
+      <div class="needs">
+        <span class="need-tag">语言发展</span>
+        <span class="need-tag">行为支持</span>
+      </div>
+      <div class="info">
+        <span class="material-symbols-outlined" style="font-size:14px">location_on</span> 海淀区
+      </div>
+      <div class="info" style="margin-top:.15rem">
+        <span class="material-symbols-outlined" style="font-size:14px">payments</span> 300-500元/次
+      </div>
+    </div>
+    <div class="demand-card">
+      <div class="type">远程指导</div>
+      <div class="needs">
+        <span class="need-tag">情绪管理</span>
+        <span class="need-tag">家庭训练</span>
+      </div>
+      <div class="info">
+        <span class="material-symbols-outlined" style="font-size:14px">location_on</span> 线上
+      </div>
+      <div class="info" style="margin-top:.15rem">
+        <span class="material-symbols-outlined" style="font-size:14px">payments</span> 200-350元/次
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 家长评价 ====== -->
+<section>
+  <h2>家长真实评价</h2>
+  <p class="subtitle">他们的声音，就是最好的证明</p>
+  <div class="reviews">
+    <div class="review-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="content">"张老师非常有耐心，孩子在学校的适应能力明显提升了，每次服务记录都写得很详细，我们做家长的特别放心。"</div>
+      <div class="author">晨晨妈妈 · 入校支持</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="content">"从发布需求到老师上门只用了两天，比以前到处跑机构方便太多了。全程能看到老师的签到和报告，很踏实。"</div>
+      <div class="author">小明家长 · 入户干预</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="content">"远程指导对我们这种小城市的家庭太友好了，终于不用每周坐3小时车去大城市做训练了。"</div>
+      <div class="author">乐乐妈妈 · 远程指导</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== 底部 CTA ====== -->
+<section class="cta-bottom">
+  <h2>开始你的米途之旅</h2>
+  <p>无论你是寻找专业支持的家长，还是希望帮助更多孩子的老师</p>
+  <div class="btns">
+    <a href="./mobile-demo/" class="btn-primary">
+      <span class="material-symbols-outlined" style="font-size:20px">family_restroom</span>
+      我是家长
+    </a>
+    <a href="./mobile-demo/" class="btn-secondary">
+      <span class="material-symbols-outlined" style="font-size:20px">school</span>
+      我是老师
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 米途 MeToo · 让专业支持触手可及</p>
+</footer>
+
+</body>
+</html>
